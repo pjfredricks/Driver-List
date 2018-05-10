@@ -21,14 +21,13 @@ public class DemoServiceImpl implements DemoService
     private DecimalFormat sizeFormat = new DecimalFormat("#.00");
 
     FileSystemView fsv = FileSystemView.getFileSystemView();
-    File[] driveList = File.listRoots();
-
+    
     ObjectMapper mapper = new ObjectMapper();
 
     public StringBuffer getDriveInfo() {
-        if (driveList != null && driveList.length > 0) {
+        if (File.listRoots() != null && File.listRoots().length > 0) {
             try {
-                for (File drive : driveList) {
+                for (File drive : File.listRoots()) {
                     demoModel.setDriveName(drive.toString());
                     demoModel.setDriveType(fsv.getSystemTypeDescription(drive));
                     demoModel.setTotalSpace(sizeFormat.format(drive.getTotalSpace() / (1024.0 * 1024.0 * 1024.0)) + " GB");
