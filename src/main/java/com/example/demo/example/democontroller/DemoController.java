@@ -1,7 +1,7 @@
 package com.example.demo.example.democontroller;
 
 
-import com.example.demo.example.demoservice.Impl.DemoServiceImpl;
+import com.example.demo.example.demoservice.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
     @Autowired
-    DemoServiceImpl demoServiceImpl;
+    DemoService demoService;
 
-    StringBuffer driveList = new StringBuffer();
+    private StringBuffer driveList = new StringBuffer();
 
     @GetMapping(value = "/displayDrives")
-    public ResponseEntity<?> displayDrives() {
+    public ResponseEntity<StringBuffer> displayDrives() {
         driveList.delete(0, driveList.length());
-        driveList = demoServiceImpl.getDriveInfo();
+        driveList = demoService.getDriveInfo();
         return new ResponseEntity<>(driveList, HttpStatus.OK);
 
     }
