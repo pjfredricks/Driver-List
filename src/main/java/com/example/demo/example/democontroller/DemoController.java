@@ -17,10 +17,10 @@ public class DemoController {
     @Autowired
     DemoService demoService;
 
-    private StringBuffer driveList = new StringBuffer();
+    private StringBuilder driveList = new StringBuilder();
 
     @GetMapping(value = "/displayDrives")
-    public ResponseEntity<StringBuffer> displayDrives() {
+    public ResponseEntity<StringBuilder> displayDrives() {
         driveList.delete(0, driveList.length());
         driveList = demoService.getDriveInfo();
         return new ResponseEntity<>(driveList, HttpStatus.OK);

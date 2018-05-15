@@ -1,6 +1,6 @@
 package com.example.demo.example.democontroller;
 
-import com.example.demo.example.demoservice.Impl.DemoServiceImpl;
+import com.example.demo.example.demoservice.impl.DemoServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
