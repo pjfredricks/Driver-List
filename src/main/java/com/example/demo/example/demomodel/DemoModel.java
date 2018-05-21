@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class DemoModel
 {
+    private char driveLetter;
     private String driveName;
     private String driveType;
     private String totalSpace;
@@ -40,6 +41,10 @@ public class DemoModel
     public void setFreeSpace(String freeSpace) {
         this.freeSpace = freeSpace;
     }
+
+    public char getDriveLetter() { return driveLetter; }
+
+    public void setDriveLetter(char driveLetter) { this.driveLetter = driveLetter; }
 
     @Override
     public String toString() {
